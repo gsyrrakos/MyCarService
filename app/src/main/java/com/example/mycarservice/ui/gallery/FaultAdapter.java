@@ -1,4 +1,4 @@
-package com.example.mycarservice.ui.slideshow;
+package com.example.mycarservice.ui.gallery;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycarservice.R;
+import com.example.mycarservice.database.FaultCodes;
 import com.example.mycarservice.database.Note;
 
 import org.jetbrains.annotations.NotNull;
@@ -16,28 +17,25 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
-    private List<Note> notes = new ArrayList<>();
-
+public class FaultAdapter extends RecyclerView.Adapter<FaultAdapter.FaultHolder> {
+    private List<FaultCodes> notes = new ArrayList<>();
 
     @NonNull
     @NotNull
     @Override
-    public NoteHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.note_item, parent, false);
+    public FaultHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        View itemview= LayoutInflater.from(parent.getContext()).inflate(R.layout.fault_item,parent,false);
 
-
-        return new NoteHolder(itemView);
+        return new FaultHolder(itemview);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull NoteHolder holder, int position) {
-        Note current = notes.get(position);
+    public void onBindViewHolder(@NonNull @NotNull FaultHolder holder, int position) {
+        FaultCodes current = notes.get(position);
         holder.textViewMilauge.setText(current.getMILAUGE());
-        holder.textViewServiceShop.setText(current.getSERVICE_SHOP());
+        holder.textMalfunction.setText(current.getFAULT_CODES());
         holder.textViewDate.setText(current.getDATE_FROM());
-        holder.textViewKindOfService.setText(current.getKIND_SERVICE());
+        holder.textViewMalfunctionDescription.setText(current.getFIX_FAULT());
 
     }
 
@@ -46,21 +44,22 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         return notes.size();
     }
 
-    public void setNotes(List<Note> note) {
+
+    public void setNotes(List<FaultCodes> note) {
         this.notes = note;
         notifyDataSetChanged();
 
 
     }
 
-    class NoteHolder extends RecyclerView.ViewHolder {
+    class FaultHolder extends RecyclerView.ViewHolder {
         private TextView textViewIncuuranceprov;
         private TextView textViewMilauge;
-        private TextView textViewServiceShop;
+        private TextView textMalfunction;
         private TextView textViewCar_make;
         private TextView textViewDate;
         private TextView textViewFaultCodes;
-        private TextView textViewKindOfService;
+        private TextView textViewMalfunctionDescription;
         private TextView textViewFixFault;
 
         private TextView textViewDateTo;
@@ -68,12 +67,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         ;
 
 
-        public NoteHolder(@NonNull @NotNull View itemView) {
+        public FaultHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             textViewMilauge = itemView.findViewById(R.id.text_slideshow1);
-            textViewServiceShop = itemView.findViewById(R.id.text_description);
+            textMalfunction = itemView.findViewById(R.id.text_description);
             textViewDate = itemView.findViewById(R.id.text_Date);
-            textViewKindOfService = itemView.findViewById(R.id.text_Description);
+            textViewMalfunctionDescription = itemView.findViewById(R.id.text_Description);
 
         }
     }

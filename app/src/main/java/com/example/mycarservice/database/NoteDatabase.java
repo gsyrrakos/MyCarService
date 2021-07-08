@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
-@Database(entities = {Note.class}, version = 1)
+@Database(entities = {Note.class,FaultCodes.class}, version = 2)
 public abstract class NoteDatabase extends RoomDatabase {
 
 
@@ -50,9 +50,10 @@ public abstract class NoteDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            noteDao.insert(new Note("edw","edw","88888","vw","12/10/21","p2012","myserv","jobs",1));
-            noteDao.insert(new Note("edw","edw","88888","vw","12/10/21","p2012","myserv","jobs",2));
-            noteDao.insert(new Note("edw","edw","88888","vw","12/10/21","p2012","myserv","jobs",3));
+            noteDao.insert(new Note("edw","edw","88888","vw",1));
+            noteDao.insert(new Note("edw","edw","88888","vw",2));
+            noteDao.insert(new Note("edw","edw","88888","vw",3));
+            noteDao.insert(new FaultCodes("edw","edw","88888","vw",3));
             return null;
         }
     }

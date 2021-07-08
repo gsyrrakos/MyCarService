@@ -53,9 +53,6 @@ public class SlideshowViewModel extends AndroidViewModel {
     public void update(Note note){
         repository.update(note);
     }
-    public void delete(Note note){
-        repository.delete(note);
-    }
 
 
 

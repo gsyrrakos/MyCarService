@@ -58,7 +58,7 @@ public class ServiceFragment extends Fragment {
         String textdate=textDate.getText().toString();
         String textservicehop=textserviceshop.getText().toString();
         String textkind=textKind.getText().toString();
-        Note note=new Note("",textservicehop,Milauge,"",textdate,"",textkind,"",1);
+        Note note=new Note(textservicehop,Milauge,textdate,textkind,1);
         viewModel.insert(note);
 
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mycarservice.database.FaultCodes;
 import com.example.mycarservice.database.Note;
 import com.example.mycarservice.database.NoteRepository;
 
@@ -16,14 +17,14 @@ public class FaultCodeViewMOdel extends AndroidViewModel {
 
     private MutableLiveData<String> mText;
     private NoteRepository repository;
-    private LiveData<List<Note>> allNotes;
+    private LiveData<List<FaultCodes>> allNotes;
 
     public FaultCodeViewMOdel(Application application) {
         super(application);
 
         mText = new MutableLiveData<>();
         repository=new NoteRepository(application);
-        allNotes=repository.getAllNotes();
+        allNotes=repository.getAllFaults();
         //mText.setValue("This is slideshow fragment");
     }
 
@@ -39,20 +40,20 @@ public class FaultCodeViewMOdel extends AndroidViewModel {
 
     }
 
-    public LiveData<List<Note>> getAllNotes(){
+    public LiveData<List<FaultCodes>> getAllNotes(){
         return allNotes;
     }
 
 
 
 
-    public void insert(Note note){
+    public void insert(FaultCodes note){
         repository.insert(note);
     }
-    public void update(Note note){
+    public void update(FaultCodes note){
         repository.update(note);
     }
-    public void delete(Note note){
+    public void delete(FaultCodes note){
         repository.delete(note);
     }
 }

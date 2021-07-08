@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.mycarservice.database.FaultCodes;
 import com.example.mycarservice.database.Note;
 import com.example.mycarservice.databinding.FragmentFaultcodesBinding;
 
@@ -56,7 +57,7 @@ public class FaultCodesFragmet extends Fragment {
         String textdate=textDate.getText().toString();
         String textservicehop=textserviceshop.getText().toString();
         String textkind=textKind.getText().toString();
-        Note note=new Note("",textservicehop,Milauge,"",textdate,"",textkind,"",1);
+        FaultCodes note=new FaultCodes(Milauge,textdate,textservicehop,textkind,1);
         viewMOdel.insert(note);
 
 

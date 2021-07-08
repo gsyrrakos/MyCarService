@@ -27,4 +27,23 @@ public interface NoteDao {
     LiveData<List<Note>> getAllNotes();
 
 
+
+    @Insert
+    void insert(FaultCodes note);
+
+    @Update
+    void update(FaultCodes note);
+
+    @Delete
+    void delete(FaultCodes note);
+
+    @Query("DELETE FROM note_fault")
+    void deleteAllFaults();
+
+    @Query("SELECT * FROM note_fault ORDER BY priority DESC")
+    LiveData<List<FaultCodes>> getAllFaults();
+
+
+
+
 }

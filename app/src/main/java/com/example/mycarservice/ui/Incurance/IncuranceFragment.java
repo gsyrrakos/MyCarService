@@ -59,11 +59,11 @@ public class IncuranceFragment extends Fragment {
     private void saveNote() {
         String Milauge = textMilauge.getText().toString();
         String textdate = textDate.getText().toString();
-        String textservicehop = textserviceshop.getText().toString();
+       // String textservicehop = textserviceshop.getText().toString();
         String textkind = textKind.getText().toString();
-        Note note = new Note("", "textservicehop", ":", "", textdate, "", "textkind", "", 1);
+        Note note = new Note("", "textservicehop", ":", "",  1);
         homeViewModel.insert(note);
-
+    }
 
         @Override
         public void onDestroyView () {

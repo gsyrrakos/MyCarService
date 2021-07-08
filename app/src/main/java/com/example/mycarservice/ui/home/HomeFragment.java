@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +20,6 @@ import com.example.mycarservice.ui.FaultCodes.FaultCodesFragmet;
 import com.example.mycarservice.ui.Incurance.IncuranceFragment;
 import com.example.mycarservice.ui.PArking.MapsFragment;
 import com.example.mycarservice.ui.Service.ServiceFragment;
-import com.example.mycarservice.ui.gallery.GalleryFragment;
 
 public class HomeFragment extends Fragment  {
 
